@@ -134,6 +134,5 @@ jwt:
 |--------|-------------|
 | 🌐 Finday 프론트엔드 | [`finday-frontend`](https://github.com/your-username/finday-frontend) |
 | 🧠 Finday 백엔드 | [`finday-backend`](https://github.com/your-username/finday-backend) |
-| 💳 국민은행 서버 | [`finday-bank-kb`](https://github.com/your-username/finday-bank-kb) |
-| 💳 신한은행 서버 | [`finday-bank-shinhan`](https://github.com/your-username/finday-bank-shinhan) |
+| 💳 은행 서버 | [`finday-bank-kb`](https://github.com/your-username/finday-bank-kb) |
 
