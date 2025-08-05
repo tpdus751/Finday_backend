@@ -43,12 +43,14 @@ Finday 백엔드 서버는 도메인 기반의 패키지 구조를 따르며, �
 
 ## 패키지 내부 구조
 
+```
 ├── controller # API 엔드포인트
 ├── service # 핵심 비즈니스 로직
 ├── repository # DB 접근 (JPA)
 ├── entity # DB 테이블 매핑 엔티티
 ├── dto # 요청/응답 데이터 구조
 └── util # Hash 생성, JWT, S3 등 유틸성 클래스
+```
 
 ---
 
