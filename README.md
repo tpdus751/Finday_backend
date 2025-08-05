@@ -107,8 +107,11 @@ jwt:
 ```
 
 ## 🔗 관련 레포지토리
-서비스	레포지토리
-💼 Finday 백엔드	(현재 레포)
-🌐 Finday 프론트엔드	finday-frontend
-🔌 KFTC Gateway 서버	finday-kftc-gateway
-💳 가상 은행 서버들	finday-bank-kb 등
+
+| 서비스 | 레포지토리 |
+|--------|-------------|
+| 🌐 Finday 프론트엔드 | [`finday-frontend`](https://github.com/your-username/finday-frontend) |
+| 🧠 Finday 백엔드 | [`finday-backend`](https://github.com/your-username/finday-backend) |
+| 💳 국민은행 서버 | [`finday-bank-kb`](https://github.com/your-username/finday-bank-kb) |
+| 💳 신한은행 서버 | [`finday-bank-shinhan`](https://github.com/your-username/finday-bank-shinhan) |
+
