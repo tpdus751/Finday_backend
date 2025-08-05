@@ -48,6 +48,7 @@ Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서�
 
 <img width="1431" height="504" alt="image" src="https://github.com/user-attachments/assets/05620efd-ce5b-4e41-a9ee-d27a3c99776b" />
 
+```
 사용자
 ↓
 [Finday Backend]
@@ -55,6 +56,7 @@ Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서�
 [KFTC Gateway 서버]
 ↓
 [각 은행 서버들 (국민, 신한, 토스 등)]
+```
 
 ---
 
