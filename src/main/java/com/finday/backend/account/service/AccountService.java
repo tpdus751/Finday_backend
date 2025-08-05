@@ -1,12 +1,11 @@
 package com.finday.backend.account.service;
 
-import com.finday.backend.account.dto.AccountCreateRequestDTO;
 import com.finday.backend.account.dto.AccountDTO;
 
 import java.util.List;
 
 public interface AccountService {
-    List<AccountDTO> findAllAccountsByUserNo(Long userNo);
+    public List<AccountDTO> getAccountsByUser(String userSpecificNo);
 
-    void createAccount(AccountCreateRequestDTO accountCreateRequestDTO);
+    List<AccountDTO> connectSelectedBanks(String userSpecificNo, List<String> bankNames);
 }

@@ -1,10 +1,7 @@
 package com.finday.backend.user.entity;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
@@ -12,9 +9,11 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "users")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Setter
+@Getter
 public class UserEntity {
 
     @Id
@@ -40,6 +39,9 @@ public class UserEntity {
 
     @Column(name = "phone_number", nullable = false, length = 20)
     private String phoneNumber;
+
+    @Column(name = "user_specific_no", nullable = false, length = 64)
+    private String userSpecificNo;
 
     @Column(columnDefinition = "TEXT")
     private String address;

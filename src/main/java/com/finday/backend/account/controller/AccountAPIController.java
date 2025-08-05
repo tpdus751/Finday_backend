@@ -1,40 +1,70 @@
 package com.finday.backend.account.controller;
 
 
-import com.finday.backend.account.dto.AccountCreateRequestDTO;
 import com.finday.backend.account.dto.AccountDTO;
 import com.finday.backend.account.service.AccountService;
+import com.finday.backend.bank.service.BankService;
+import com.finday.backend.client.KftcAccountsClient;
+import com.finday.backend.account.dto.TransferRequestDTO;
+import com.finday.backend.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/account")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class AccountAPIController {
 
     private final AccountService accountService;
+    private final BankService bankService;
+    private final UserService userService;
+    private final KftcAccountsClient kftcAccountsClient;
 
-    // ✅ 사용자 번호 기반 계좌 전체 조회 (해지 포함)
     @GetMapping("/all")
-    public List<AccountDTO> getAllAccounts(@RequestParam("userNo") Long userNo) {
-        System.out.println("요청 번호 : " + userNo);
-        return accountService.findAllAccountsByUserNo(userNo);
-    }
-
-    @PostMapping("/create")
-    public ResponseEntity<String> createAccount(@RequestBody AccountCreateRequestDTO accountCreateRequestDTO) {
-        try {
-            accountService.createAccount(accountCreateRequestDTO);
-            return ResponseEntity.ok("계좌 개설 성공");
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body("잘못된 요청입니다: " + e.getMessage());
-        } catch (Exception e) {
-            return ResponseEntity.status(500).body("서버 오류 발생: " + e.getMessage());
+    public ResponseEntity<List<AccountDTO>> getAccounts(@RequestParam String userSpecificNo) {
+        if (userSpecificNo == null) {
+            return ResponseEntity.badRequest().build();
         }
 
+        List<AccountDTO> accounts = accountService.getAccountsByUser(userSpecificNo);
+        for (AccountDTO acc : accounts) {
+            System.out.println(acc);
+        }
+        return ResponseEntity.ok(accounts);
+    }
+
+    @PostMapping("/selected")
+    public List<AccountDTO> connectSelectedBanks(@RequestBody Map<String, Object> body) {
+        String userSpecificNo = (String) body.get("userSpecificNo");
+        List<String> bankNames = (List<String>) body.get("bankNames");
+        List<AccountDTO> selectedAccountList =  accountService.connectSelectedBanks(userSpecificNo, bankNames);
+
+        Long loginedUserNo = userService.getUserNoByUserSpecificNo(userSpecificNo);
+
+        if (selectedAccountList.size() != 0) {
+
+            for (AccountDTO selectedAccount : selectedAccountList) {
+                bankService.ConnectUserBank(selectedAccount.getBankName(), loginedUserNo);
+            }
+        }
+
+        return selectedAccountList;
+    }
+
+    @PostMapping("/transfer")
+    public ResponseEntity<String> transfer(@RequestBody TransferRequestDTO request) {
+        try {
+            boolean success = kftcAccountsClient.requestTransferToKftc(request);
+            return success
+                    ? ResponseEntity.ok("OK")
+                    : ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("FAIL");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("FAIL: " + e.getMessage());
+        }
     }
 }

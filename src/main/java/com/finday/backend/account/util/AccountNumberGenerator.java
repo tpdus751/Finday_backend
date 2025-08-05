@@ -42,8 +42,8 @@ public class AccountNumberGenerator {
                 return String.format("%03d-%03d-%06d", rand(1000), rand(1000), rand(1000000));
 
             case "토스뱅크":
-                // 10자리 연속 숫자
-                return String.format("%010d", rand(1000000000));
+                // 4-4-4
+                return String.format("%04d-%04d-%04d", rand(10000), rand(10000), rand(10000));
 
             case "부산은행":
                 // YYY-ZZZZ-ZZZZ-ZC (13자리)

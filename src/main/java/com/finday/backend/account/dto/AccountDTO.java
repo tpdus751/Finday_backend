@@ -1,20 +1,20 @@
 package com.finday.backend.account.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class AccountDTO {
-    private Long accountNo;
-    private String bankName;
     private String accountNumber;
     private String alias;
     private Long balance;
-    private String status;
-    private LocalDateTime createdAt;
+    private String createdAt;
+    private String bankName;
+    private String accountName;
+    private String bankLogoImgUrl;
 }
