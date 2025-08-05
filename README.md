@@ -36,10 +36,7 @@ Finday 백엔드 서버는 도메인 기반의 패키지 구조를 따르며, �
 | `item` | 거래 생성을 위한 소비 항목(아이템) 목록 조회 기능 처리 | |
 | `transaction` | 거래 생성, 거래 내역 조회, 소비 분석 등 거래 관련 기능 처리 | |
 | `client` | `WebClient`를 사용하여 KFTC Gateway 서버와의 API 통신 처리 (계좌/이체/카드 등) | 
-| `config` | 전역 설정 관련 패키지. `SecurityConfig`를 통해 다음을 설정: | - CORS 정책 (localhost:3000 허용)<br>- JWT 인증 필터(`JwtAuthenticationFilter`) 등록  
-- 인증 없이 접근 가능한 경로: `/api/user/auth/**`, `/img/**`  
-- 그 외 모든 요청은 인증 필요  
-- 세션은 `STATELESS`로 설정 (JWT 기반) |
+| `config` | 전역 설정 관련 패키지. `SecurityConfig`를 통해 다음을 설정: | - CORS 정책 (localhost:3000 허용)<br>- JWT 인증 필터(`JwtAuthenticationFilter`) 등록<br>- 인증 없이 접근 가능한 경로: `/api/user/auth/**`, `/img/**`<br>- 그 외 모든 요청은 인증 필요<br>- 세션은 `STATELESS`로 설정 (JWT 기반) |
 | `security` | 보안 관련 필터 정의 |
   - `JwtAuthenticationFilter`: 모든 요청에 대해 JWT 유효성을 검사하고, 유효한 경우 `userNo`를 인증 객체로 등록  
   - `Authorization` 헤더가 없거나 잘못된 경우 필터를 통과시키되 인증 없이 처리  
