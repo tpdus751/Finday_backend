@@ -5,6 +5,25 @@
 
 ---
 
+## 아키텍처
+
+Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서버** 역할을 하며, 다음과 같은 흐름을 가집니다:
+
+<img width="1320" height="651" alt="image" src="https://github.com/user-attachments/assets/577b5f99-fbdc-4f23-b6f6-770c2b73138c" />
+
+
+```
+사용자
+↓
+[Finday Backend]
+↓
+[KFTC Gateway 서버]
+↓
+[각 은행 서버들 (국민, 신한, 토스 등)]
+```
+
+---
+
 ## 패키지 구조
 
 Finday 백엔드 서버는 도메인 기반의 패키지 구조를 따르며, 각 도메인이 명확한 역할을 담당합니다.
@@ -39,24 +58,6 @@ Finday 백엔드 서버는 도메인 기반의 패키지 구조를 따르며, �
 ├── entity # DB 테이블 매핑 엔티티
 ├── dto # 요청/응답 데이터 구조
 └── util # Hash 생성, JWT, S3 등 유틸성 클래스
-
----
-
-## 아키텍처
-
-Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서버** 역할을 하며, 다음과 같은 흐름을 가집니다:
-
-<img width="1431" height="504" alt="image" src="https://github.com/user-attachments/assets/05620efd-ce5b-4e41-a9ee-d27a3c99776b" />
-
-```
-사용자
-↓
-[Finday Backend]
-↓
-[KFTC Gateway 서버]
-↓
-[각 은행 서버들 (국민, 신한, 토스 등)]
-```
 
 ---
 
