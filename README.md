@@ -33,17 +33,18 @@ Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서�
 
 | 분류 | 기술 | 설명 |
 |------|------|------|
-| **Language** | Java 17 | 안정적인 JVM 기반 언어 |
-| **Framework** | Spring Boot 3 | RESTful API 백엔드 프레임워크 |
-| **Build Tool** | Gradle | 프로젝트 빌드/의존성 관리 |
-| **ORM** | Spring Data JPA | DB 테이블과 객체 매핑 |
-| **Database** | MySQL | 주요 데이터 저장소 |
-| **WebClient** | API 연동용 비동기 HTTP 클라이언트 |
-| **API 문서화** | SpringDoc OpenAPI (Swagger UI) |
-| **Validation** | Bean Validation | 사용자 입력 검증 |
-| **JWT** | 인증 및 세션 관리 |
-| **AWS S3** | 안면 이미지 저장소 |
-| **Test** | Spring Boot Test, JUnit |
+| **Language** | Java 17 | 안정성과 최신 문법을 모두 갖춘 JVM 기반 언어 |
+| **Framework** | Spring Boot 3.4.4 | REST API 개발에 최적화된 백엔드 프레임워크 |
+| **Build Tool** | Gradle | 의존성 관리 및 빌드 자동화를 위한 도구 |
+| **Web** | Spring Web / WebFlux | 동기 + 비동기 웹 애플리케이션 지원 |
+| **Security** | Spring Security | 로그인, 인증, JWT 필터링 처리 |
+| **JWT** | JJWT (io.jsonwebtoken) | JWT 발급 및 검증을 위한 경량 라이브러리 |
+| **API 문서화** | SpringDoc OpenAPI 3 (Swagger UI) | Swagger 기반 API 명세 자동 생성 |
+| **ORM** | Spring Data JPA | 객체-관계 매핑 및 쿼리 메서드 지원 |
+| **Database** | MySQL 8.x | 주요 데이터 저장소 |
+| **AWS** | AWS SDK v2 (S3, Auth, Regions) | 안면 이미지 저장 및 AWS 리소스 연동 |
+| **Lombok** | Lombok 1.18.30 | Getter/Setter/Builder 등 반복 코드 제거 |
+| **Test** | JUnit 5 + Spring Security Test | 단위/인증 테스트 지원 |
 
 ---
 
