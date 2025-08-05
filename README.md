@@ -10,6 +10,7 @@
 Finday 백엔드는 MSA 아키텍처 내에서 **중앙 사용자 서비스 서버** 역할을 하며, 다음과 같은 흐름을 가집니다:
 
 <img width="1320" height="651" alt="image" src="https://github.com/user-attachments/assets/577b5f99-fbdc-4f23-b6f6-770c2b73138c" />
+
 ```
 사용자
 ↓
